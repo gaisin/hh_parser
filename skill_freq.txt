@@ -1,0 +1,37 @@
+python 8
+linux 3
+machine learning 3
+sql 2
+c/c++ 2
+c++ 2
+data science 2
+javascript 2
+java 2
+django framework 1
+postfix 1
+ms exchange 1
+анализ данных 1
+git 1
+postgresql 1
+bash 1
+itsm 1
+big data 1
+data analysis 1
+mathematics 1
+statistics 1
+analytics 1
+php 1
+mysql 1
+php5 1
+ajax 1
+yii 1
+преподаватель 1
+unity 1
+c# 1
+lua 1
+java se 1
+spring framework 1
+тестирование 1
+тестирование пользовательского интерфейса 1
+tcp/ip 1
+qa 1
