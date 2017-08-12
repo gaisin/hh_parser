@@ -145,9 +145,11 @@ def parse_offers(links):
 
 
 if __name__ == '__main__':
-    query = 'python+junior'
-    area = '1'
+    query = 'python'
+    area = '113'
     # сначала вытащим все ссылки на вакансии по данному запросу и региону
     links = get_all_offers_links(query, area)
     # теперь распарсим информацию по каждой ссылке, полученной выше
     parse_offers(links)
+
+    print('Проверено ',len(links), ' вакансий.')
