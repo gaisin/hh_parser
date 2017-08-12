@@ -13,20 +13,28 @@ query = 'python'
 area = '113' # вся Россия
 ```
 наиболее часто указываемые ключевые навыки, которые указывают вместе с Python:
-* python 8
-* linux 3
-* machine learning 3
-* sql 2
-* c/c++ 2
-* c++ 2
-* data science 2
-* javascript 2
-* java 2
-Указаны только те навыки, которые были упомянуты более одного раза. 
+* python 493
+* linux 248
+* git 157
+* sql 153
+* postgresql 132
+* javascript 114
+* java 106
+* django framework 97
+* mysql 93
+* c++ 80
+* php 66
+* bash 63
+* ооп 53
+* tcp/ip 49
+* nginx 46
+* тестирование 43
+* docker 40
+Указаны только те навыки, которые были упомянуты более 40 раз. Всего было проанализировано 2000 вакансий.
 
 ### Вывод
 Можно сделать вывод, что для тех, кто ищет работу питонистом для большого количества работодателей будет плюсом знание 
-***linux, machine learning, sql***.
+***linux, git, sql, postresql, javascript|java, django, mysql***.
 
 # Как он работает
 
