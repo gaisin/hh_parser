@@ -3,6 +3,7 @@
 import requests
 from bs4 import BeautifulSoup
 import time
+import argparse
 
 # достает html код по указанной ссылке
 def get_html(url):      
@@ -145,10 +146,14 @@ def parse_offers(links):
 
 
 if __name__ == '__main__':
-    query = 'python'
-    area = '113'
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--query", "-q", help="set query", required=True)
+    parser.add_argument("--area", "-a", help="set area", required=True)
+    args = parser.parse_args()
+
     # сначала вытащим все ссылки на вакансии по данному запросу и региону
-    links = get_all_offers_links(query, area)
+    print('Поиск по запросу', args.query, 'в области', args.area)
+    links = get_all_offers_links(args.query, args.area)
     # теперь распарсим информацию по каждой ссылке, полученной выше
     parse_offers(links)
 
