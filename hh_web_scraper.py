@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 import time
 
 # достает html код по указанной ссылке
-def get_html(url):      
+def get_html(url):
     headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36'}
     rq = requests.get(url, headers=headers)
     print('Gettin HTML-code from ', url)
@@ -15,7 +15,7 @@ def get_html(url):
 # проверяет, есть ли на странице ссылки на вакансии
 def is_empty(html):
     soup = BeautifulSoup(html, 'lxml')
-    links = soup.find_all('a', class_='search-result-item__name')
+    links = soup.find_all('a', class_='HH-LinkModifier')
     if links == []:
         return True
     else:
@@ -57,7 +57,7 @@ def get_offers_links(html, all_links):
     # новый объект класса BeutifulSoup
     soup = BeautifulSoup(html, 'lxml')
 
-    links = soup.find_all('a', class_='search-result-item__name')
+    links = soup.find_all('a', class_='HH-LinkModifier')
     for link in links:
         link_parsed = link.get('href').split('?')
         all_links.append(link_parsed[0])
@@ -82,7 +82,7 @@ def parse_skills_in_offer(soup, skill_dict):
 # функция, которая парсит блок с описанием вакансии и возвращает дополненный словарь, который ей дали на входе
 def parse_description_in_offer(soup, description_dict):
     # описание вакансии
-    description = soup.find('div', class_='b-vacancy-desc-wrapper')
+    description = soup.find('div', class_="vacancy-section")
     # оставим только текст без тегов
     text = ''.join(description.findAll(text=True))
     # почистим текст от знаков препинания
@@ -124,7 +124,9 @@ def get_and_save_area_codes():
 def parse_offers(links):
     skill_dict = {}
     description_dict = {}
-    for link in links:
+    for i in range(len(links)):
+        link = links[i]
+        print('Скачано ', i, ' из ', len(links))
         html = get_html(link)
         time.sleep(.3)
         soup = BeautifulSoup(html, 'lxml')
@@ -146,7 +148,7 @@ def parse_offers(links):
 
 if __name__ == '__main__':
     query = 'python'
-    area = '113'
+    area = '2'
     # сначала вытащим все ссылки на вакансии по данному запросу и региону
     links = get_all_offers_links(query, area)
     # теперь распарсим информацию по каждой ссылке, полученной выше
